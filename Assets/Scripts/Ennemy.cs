@@ -45,6 +45,10 @@ public class Ennemy : MonoBehaviour
             collision.gameObject.GetComponent<PlayerScript>().Damage();
             Die();
         }
+        if (collision.gameObject.tag == "destructor")
+        {
+            Die();
+        }
     }
 
     void Die()

@@ -40,12 +40,20 @@ public class BulletScript : MonoBehaviour
                 collision.gameObject.GetComponent<Ennemy>().Damage();
                 Destroy(gameObject);
             }
+            if (collision.gameObject.tag == "bounds")
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
             if (collision.gameObject.tag == "Player")
             {
                 collision.gameObject.GetComponent<PlayerScript>().Damage();
+                Destroy(gameObject);
+            }
+            if (collision.gameObject.tag == "bounds")
+            {
                 Destroy(gameObject);
             }
         }
