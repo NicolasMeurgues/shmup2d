@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6760861297193779111, guid: 18263e1cef6d9b746ad546a701633297, type: 3}
+  explosion: {fileID: 2951742563468545018, guid: 716dabbcaf1218a4db99ba83c356104d,
+    type: 3}
   moveSpeed: 10
   pv: 3
-  attackSpeed: 0
   rb: {fileID: 6700719335656099681}

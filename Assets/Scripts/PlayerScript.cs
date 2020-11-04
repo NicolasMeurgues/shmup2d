@@ -10,7 +10,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     GameObject a, b;
-    public GameObject bullet;
+    public GameObject bullet, explosion;
 
     public float moveSpeed;
     public int pv = 3;
@@ -49,6 +49,7 @@ public class PlayerScript : MonoBehaviour
         pv--;
         if (pv == 0)
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

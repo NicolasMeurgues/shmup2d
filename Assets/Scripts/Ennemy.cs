@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Ennemy : MonoBehaviour
 {
 
     GameObject a;
-    public GameObject bullet;
+    public GameObject bullet, explosion;
     Rigidbody2D rb;
 
-    public float xSpeed;
+
+    public bool moveX;
+    float xSpeed;
     public float ySpeed;
+    float j;
 
     public bool shooter;
     public float attackSpeed;
@@ -35,6 +39,11 @@ public class Ennemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (moveX) 
+        {
+            xSpeed = math.cos(j)*4;
+            j += 0.02f;
+        }
         rb.velocity = new Vector2(xSpeed, ySpeed*-1);
     }
 
@@ -47,12 +56,13 @@ public class Ennemy : MonoBehaviour
         }
         if (collision.gameObject.tag == "destructor")
         {
-            Die();
+            Destroy(gameObject);
         }
     }
 
     void Die()
     {
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
