@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+
     Rigidbody2D rb;
 
     int dir = 1;
-
+    int xSpeed = 0;
 
     private void Awake()
     {
@@ -23,12 +24,17 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(0, 15*dir);
+        rb.velocity = new Vector2(3*xSpeed, 15*dir);
     }
 
-    public void ChangeDirection()
+    public void ChangeDirectionY()
     {
         dir *= -1;
+    }
+
+    public void ChangeDirectionX(int i)
+    {
+        xSpeed += i;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

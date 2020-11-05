@@ -25,7 +25,7 @@ public class Spawn : MonoBehaviour
     {
         for (int i = 0; i<waves; i++)
         {
-            Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-13f, 13f), 7, 0), Quaternion.identity);
+            Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-12.25f, 12.25f), 7, 0), Quaternion.identity);
 
         }
 

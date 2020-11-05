@@ -167,7 +167,8 @@ MonoBehaviour:
   bullet: {fileID: 6760861297193779111, guid: 18263e1cef6d9b746ad546a701633297, type: 3}
   explosion: {fileID: 2951742563468545018, guid: 716dabbcaf1218a4db99ba83c356104d,
     type: 3}
-  xSpeed: 0
+  score: 200
+  moveX: 0
   ySpeed: 2
   shooter: 1
   attackSpeed: 2

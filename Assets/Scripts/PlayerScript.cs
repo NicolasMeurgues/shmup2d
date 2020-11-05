@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject bullet, explosion;
 
     public float moveSpeed;
-    public int pv = 3;
+    public int life = 3;
     int attackSpeed=0;
 
     public Rigidbody2D rb;
@@ -28,7 +28,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt(0.ToString()));
+        PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt(0.ToString()) + 3);
     }
 
     // Update is called once per frame
@@ -46,8 +47,9 @@ public class PlayerScript : MonoBehaviour
 
     public void Damage()
     {
-        pv--;
-        if (pv == 0)
+        life--;
+        PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") - 1);
+        if (life == 0)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
