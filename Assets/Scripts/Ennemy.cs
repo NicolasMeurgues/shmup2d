@@ -20,6 +20,7 @@ public class Ennemy : MonoBehaviour
     public float attackSpeed;
     public float pv;
 
+    
 
     private void Awake()
     {
@@ -31,7 +32,8 @@ public class Ennemy : MonoBehaviour
     {
         if (shooter)
         {
-            InvokeRepeating("Shoot", attackSpeed, attackSpeed);
+            float randAtk = UnityEngine.Random.Range(0f, 1f);
+            InvokeRepeating("Shoot", attackSpeed+randAtk, attackSpeed);
         }
 
     }
