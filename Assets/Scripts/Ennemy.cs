@@ -41,7 +41,7 @@ public class Ennemy : MonoBehaviour
     {
         if (moveX) 
         {
-            xSpeed = math.cos(j)*4;
+            xSpeed = math.cos(j)*5;
             j += 0.02f;
         }
         rb.velocity = new Vector2(xSpeed, ySpeed*-1);
