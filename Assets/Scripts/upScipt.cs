@@ -39,15 +39,12 @@ public class upScipt : MonoBehaviour
             {
                 case 1:
                     collision.gameObject.GetComponent<PlayerScript>().AddShield();
-                    Debug.Log("shield");
                     break;
                 case 2:
                     collision.gameObject.GetComponent<PlayerScript>().UpgradeShoot();
-                    Debug.Log("shoot");
                     break;
                 case 3:
                     collision.gameObject.GetComponent<PlayerScript>().AddLife();
-                    Debug.Log("life");
                     break;
             }
                 

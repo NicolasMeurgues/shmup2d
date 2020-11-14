@@ -77,13 +77,17 @@ public class PlayerScript : MonoBehaviour
 
     public void AddLife()
     {
-        life++;
-        PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") + 1);
+        if (life < 5)
+        {
+            life++;
+            PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") + 1);
+        }
+        
     }
 
     public void UpgradeShoot()
     {
-        if (attackSpeed > 2) { attackSpeed -= 2; }
+        if (attackSpeed > 5) { attackSpeed -= 2; }
     }
 
     void Shoot()
