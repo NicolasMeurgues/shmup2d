@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ennemy : MonoBehaviour
 {
-    public GameObject bullet, explosion;
+    public GameObject bullet, explosion, upShoot, upShield, heart;
     Rigidbody2D rb;
 
     public int score;
@@ -19,6 +19,7 @@ public class Ennemy : MonoBehaviour
     public float attackSpeed;
     public int pv;
 
+    public float dropRate = 0.2f;
 
 
     private void Awake()
@@ -77,6 +78,25 @@ public class Ennemy : MonoBehaviour
         Instantiate(explosion, transform.position, Quaternion.identity);
         PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + score);
         Destroy(gameObject);
+        float drop = UnityEngine.Random.Range(0f, 1f);
+        if (drop < dropRate)
+        {
+            float up = UnityEngine.Random.Range(0, 3);
+            switch (up)
+            {
+                case 0:
+                    Instantiate(upShield, transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(upShoot, transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(heart, transform.position, Quaternion.identity);
+                    break;
+            }
+            
+        }
+
     }
 
     public void Damage()

@@ -161,9 +161,14 @@ MonoBehaviour:
   bullet: {fileID: 6760861297193779111, guid: 18263e1cef6d9b746ad546a701633297, type: 3}
   explosion: {fileID: 2951742563468545018, guid: 716dabbcaf1218a4db99ba83c356104d,
     type: 3}
+  upShoot: {fileID: 6796379290123755262, guid: fca970080c604a14fbafc32dcb2ea2fb, type: 3}
+  upShield: {fileID: 1282990601651440977, guid: 889a86013700a9045b506b9c64fa1a00,
+    type: 3}
+  heart: {fileID: 339644005487209065, guid: f7e6bda09aca0c54e88a745d0b590b2b, type: 3}
   score: 250
   moveX: 0
   ySpeed: 1
   shooter: 3
   attackSpeed: 2
   pv: 5
+  dropRate: 0.2

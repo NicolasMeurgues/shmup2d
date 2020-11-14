@@ -13,4 +13,5 @@ public class PlayerLifeText : MonoBehaviour
     {
         GetComponent<Text>().text = PlayerPrefs.GetInt("Life") + "";
     }
+
 }
