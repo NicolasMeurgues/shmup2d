@@ -12,7 +12,7 @@ public class Boss1 : MonoBehaviour
     Rigidbody2D rb;
     public GameObject bullet, a1, a2, b1, b2, laser1, laser2;
     public bool alive = true;
-    public int health = 150;
+    public int health = 900;
     public float attackSpeedSeconds;
     public float repeatAttackSpeed;
     float j = 0;
@@ -44,14 +44,14 @@ public class Boss1 : MonoBehaviour
 
 
         //Check the boss phase based on its HP
-        if (health <= 150 && health > 100)
+        if (health <= 900 && health > 600)
             bossPhase = 1;
-        else if (health <= 100 && health > 50) 
+        else if (health <= 600 && health > 300) 
         { 
             bossPhase = 2;
 
         }
-        else if (health <= 50 && health > 0)
+        else if (health <= 300 && health > 0)
             bossPhase = 3;
         else if (health <= 0)
             Die();

@@ -5,16 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    //Function names are explicit.
     public string levelToLoad;
 
     public GameObject settingsWindow;
-
-
-    void Start()
-    {
-        
-    }
 
     public void StartGame()
     {

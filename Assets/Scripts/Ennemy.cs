@@ -22,12 +22,13 @@ public class Ennemy : MonoBehaviour
     public float dropRate = 0.2f;
 
 
+    //Get the rigidbody of the enemy at spawn
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
+    //Check which type of shooting pattern the spawned enemy has
     void Start()
     {
         if (shooter == 1)
@@ -49,7 +50,8 @@ public class Ennemy : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    //If the enemy is tagged as being able to move on the X axis, then change its horizontal velocity 
+    //to make it match a sine move pattern
     void Update()
     {
         if (moveX)
@@ -60,19 +62,25 @@ public class Ennemy : MonoBehaviour
         rb.velocity = new Vector2(xSpeed, ySpeed * -1);
     }
 
+
+    //When colliding with an object, check whether it is the player or the destructor.
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //If it is the player, inflict damage then destruct self
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerScript>().Damage();
             Die();
         }
+        //Else, destruct self.
         if (collision.gameObject.tag == "destructor")
         {
             Destroy(gameObject);
         }
     }
 
+    //When the spawned enemy is killed, check whether it drops a power-up or not
+    //This is pseudo-random and should give a fair amount of power-ups, which are essential
     void Die()
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
@@ -84,13 +92,13 @@ public class Ennemy : MonoBehaviour
             float up = UnityEngine.Random.Range(0, 3);
             switch (up)
             {
-                case 0:
+                case 0: //shields upgrade
                     Instantiate(upShield, transform.position, Quaternion.identity);
                     break;
-                case 1:
+                case 1: //shooting speed upgrade
                     Instantiate(upShoot, transform.position, Quaternion.identity);
                     break;
-                case 2:
+                case 2: //extra life
                     Instantiate(heart, transform.position, Quaternion.identity);
                     break;
             }
@@ -99,6 +107,7 @@ public class Ennemy : MonoBehaviour
 
     }
 
+    //Simple damage function.
     public void Damage()
     {
         pv--;
@@ -108,12 +117,14 @@ public class Ennemy : MonoBehaviour
         }
     }
 
+    //When shooting, instantiate and spawn a bullet relative to the rigidbody 
     void Shoot()
     {
         GameObject temp = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
         temp.GetComponent<BulletScript>().ChangeDirectionY();
     }
 
+    //Alternate shooting pattern. Shoots two bullets diagonally.
     void Shoot2()
     {
         GameObject temp1 = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
@@ -124,6 +135,7 @@ public class Ennemy : MonoBehaviour
         temp2.GetComponent<BulletScript>().ChangeDirectionX(-1);
     }
 
+    //Alternate shooting pattern. Shoots five bullets at once in a spray pattern.
     void Shoot3()
     {
         for (int i = 0; i < 4; i++)
