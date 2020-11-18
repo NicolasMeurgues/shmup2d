@@ -11,6 +11,7 @@ public class BulletScript : MonoBehaviour
     int dir = 1;
     float xSpeed = 0.0f;
 
+
     public bool isLaser;
 
     private void Awake()
@@ -19,32 +20,32 @@ public class BulletScript : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    //Check and potentially change the direction of the bullets at every frame
     void Update()
     {
         if(!isLaser)
             rb.velocity = new Vector2(3*xSpeed, ySpeedMultiplicator*dir);
     }
 
+
+    //Force the bullets to go from up to bottom. Useful when the enemies are shooting.
     public void ChangeDirectionY()
     {
         dir *= -1;
     }
 
+    //Changes the velocity of the bullet on the X axis. Useful for different spray patterns.
     public void ChangeDirectionX(float i)
     {
         xSpeed += i;
     }
 
+    //On collision, check what it collided with.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (dir == 1 && !isLaser)
+
+        if (dir == 1)
         {
             if (collision.gameObject.tag == "Ennemy")
             {
