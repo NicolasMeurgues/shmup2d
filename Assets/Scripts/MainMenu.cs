@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        Screen.SetResolution(800, 600, true);
+        
     }
 
     public void StartGame()

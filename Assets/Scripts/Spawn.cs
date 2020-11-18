@@ -25,7 +25,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("Score") >= 2000 && !isBoss)
+        if (PlayerPrefs.GetInt("Score") >= 20000 && !isBoss)
         {
             spawnBoss1();
         }

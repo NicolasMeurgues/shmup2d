@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class upScipt : MonoBehaviour
+public class UpScipt : MonoBehaviour
 {
     Rigidbody2D rb;
 

@@ -19,6 +19,11 @@ public class PlayerScript : MonoBehaviour
     public int attackSpeed = 9;
     int attackRate = 0;
 
+    bool isShield = false;
+    public GameObject shield;
+    int shieldedTime = 0;
+    int maxShieldTime = 120;
+
     public AudioSource audioSource;
     public AudioClip laserSound, shieldOn, shieldOff, loseSound;
 
@@ -59,24 +64,41 @@ public class PlayerScript : MonoBehaviour
             Shoot();
         }
         attackRate++;
+        if (isShield && shieldedTime >= maxShieldTime)
+        {
+            audioSource.PlayOneShot(shieldOff);
+            shield.SetActive(false);
+            isShield = false;
+            shieldedTime = 0;
+        }
+        else if (isShield) { shieldedTime++; }
     }
 
     public void Damage()
     {
-        life--;
-        PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") - 1);
-        AudioSource.PlayClipAtPoint(loseSound, transform.position); //pas ouf, car volume pas gérable
-        if (life == 0)
+        if (!isShield)
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            GameOverMenu.instance.OnPlayerDeath();
+            life--;
+            PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") - 1);
+            AudioManager.instance.PlayClipAt(loseSound, transform.position);
+            if (life == 0)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+                GameOverMenu.instance.OnPlayerDeath();
+            }
         }
     }
 
     public void AddShield()
     {
-        audioSource.PlayOneShot(shieldOn);
+        if (!isShield) 
+        {
+            isShield = true;
+            shield.SetActive(true);
+            audioSource.PlayOneShot(shieldOn); 
+        }
+        
     }
 
     public void AddLife()
