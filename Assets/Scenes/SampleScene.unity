@@ -403,12 +403,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4891983e9acaa0d449186bfe759c7742, type: 3}
   - {fileID: 8300000, guid: 54a6918461868e04cbc9f8a9d740d279, type: 3}
   - {fileID: 8300000, guid: d5df71c72f556e14ca4eba9719845454, type: 3}
-  - {fileID: 8300000, guid: 771a0d13c1b059d4bb3256a149c96d98, type: 3}
-  - {fileID: 8300000, guid: 2c73a7efde6828c45810b790c46b91a2, type: 3}
-  - {fileID: 8300000, guid: 6c614b18684f39749a5df5ed0c121281, type: 3}
-  - {fileID: 8300000, guid: 07f97e1500a44d74f8e8d6e95eb2eefc, type: 3}
-  - {fileID: 8300000, guid: 9b6fd3f0140a7154d9603b09122abc0c, type: 3}
-  - {fileID: 8300000, guid: 1de6a19bbdc8dec49a3d96f8f13fabcf, type: 3}
   audioSource: {fileID: 314536762}
   soundEffectMixer: {fileID: 24300002, guid: 595f529b04fab9c4c923efed43c4d1ec, type: 2}
 --- !u!82 &314536762
@@ -3187,28 +3181,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71efac28c6a1c24cbb793a041699318, type: 3}
---- !u!1 &2267426257838447563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2267426257927873462, guid: d71efac28c6a1c24cbb793a041699318,
-    type: 3}
-  m_PrefabInstance: {fileID: 2267426257838447562}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2267426257838447564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2267426257838447563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1da63591dc67445b632e87664be9fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 703b245f98d111d418d988ba74eefbce, type: 3}
-  pixelSizeX: 3
-  pixelSizeY: 3
-  lockXY: 1
 --- !u!1001 &5066413767623022462
 PrefabInstance:
   m_ObjectHideFlags: 0

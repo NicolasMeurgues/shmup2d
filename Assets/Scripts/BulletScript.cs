@@ -44,8 +44,6 @@ public class BulletScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (dir == 1 && !isLaser)
-
-        if (dir == 1)
         {
             if (collision.gameObject.tag == "Ennemy")
             {
