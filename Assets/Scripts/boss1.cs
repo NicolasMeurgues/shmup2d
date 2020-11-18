@@ -27,18 +27,12 @@ public class Boss1 : MonoBehaviour
         a2 = transform.Find("a2").gameObject;
         b1 = transform.Find("b1").gameObject;
         b2 = transform.Find("b2").gameObject;
-        Debug.Log("fin du awake");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (bossPhase == 1)
-            InvokeRepeating("BossShootPhase1", attackSpeedSeconds, repeatAttackSpeed);
-        //else if (bossPhase == 2)
-            //InvokeRepeating("bossShootPhase2", attackSpeedSeconds, repeatAttackSpeed);
-        //else if (bossPhase == 3)
-            //InvokeRepeating("bossShootPhase3", attackSpeedSeconds, repeatAttackSpeed);
+        InvokeRepeating("BossFunction", attackSpeedSeconds, repeatAttackSpeed);
     }
 
     // Update is called once per frame
@@ -55,7 +49,7 @@ public class Boss1 : MonoBehaviour
         else if (health <= 100 && health > 50) 
         { 
             bossPhase = 2;
-            laser1.SetActive(true); 
+
         }
         else if (health <= 50 && health > 0)
             bossPhase = 3;
@@ -63,6 +57,19 @@ public class Boss1 : MonoBehaviour
             Die();
         rb.velocity = new Vector2(xSpeed, 0);
     }
+
+
+    void BossFunction()
+    {
+        if (bossPhase == 1)
+            BossShootPhase1();
+        else if (bossPhase == 2)
+            BossShootPhase2();
+        else if (bossPhase == 3)
+            BossShootPhase1();
+    }
+
+
     void BossShootPhase1()
     {
         float shootSpeedMultiplier = UnityEngine.Random.Range(1.0f, 2.0f);
@@ -76,11 +83,12 @@ public class Boss1 : MonoBehaviour
         rotation += 0.2f;
     }
 
+    void BossShootPhase2()
+    {
+            laser1.SetActive(true);
+            laser2.SetActive(true);
+    }
 
-    //void bossShootPhase2()
-    //{
-    //GameObject laser1 = (GameObject)Instantiate()
-    //}
     public void Damage()
     {
         health--;
@@ -91,6 +99,15 @@ public class Boss1 : MonoBehaviour
     {
         Destroy(gameObject);
         SceneManager.LoadScene("Credits");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) 
+    { 
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerScript>().Damage();
+            Debug.Log("attention au laser");
+        }
     }
 
 }

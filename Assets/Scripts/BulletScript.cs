@@ -11,9 +11,12 @@ public class BulletScript : MonoBehaviour
     int dir = 1;
     float xSpeed = 0.0f;
 
+    public bool isLaser;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if(!isLaser)
+            rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -25,7 +28,8 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(3*xSpeed, ySpeedMultiplicator*dir);
+        if(!isLaser)
+            rb.velocity = new Vector2(3*xSpeed, ySpeedMultiplicator*dir);
     }
 
     public void ChangeDirectionY()
@@ -40,7 +44,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (dir == 1)
+        if (dir == 1 && !isLaser)
         {
             if (collision.gameObject.tag == "Ennemy")
             {
@@ -57,7 +61,7 @@ public class BulletScript : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else
+        else if (dir == -1 && !isLaser)
         {
             if (collision.gameObject.tag == "Player")
             {
@@ -67,6 +71,15 @@ public class BulletScript : MonoBehaviour
             if (collision.gameObject.tag == "bounds")
             {
                 Destroy(gameObject);
+            }
+        }
+
+        else if (isLaser)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                collision.gameObject.GetComponent<PlayerScript>().Damage();
+                Debug.Log("attention au laser");
             }
         }
         
