@@ -22,7 +22,7 @@ public class Spawn : MonoBehaviour
         
     }
 
-    //Updates the score
+    //Look the score to know if the boss chould spawn
     void Update()
     {
         if (PlayerPrefs.GetInt("Score") >= 30000 && !isBoss)
