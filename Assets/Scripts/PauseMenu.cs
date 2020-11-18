@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    //function names are explicit.
 
     public static bool gameIsPaused = false;
 
@@ -12,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsWindow;
 
 
+    //Check whether the escape key has been pressed and toggle the pause menu.
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

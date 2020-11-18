@@ -14,8 +14,7 @@ public class Spawn : MonoBehaviour
     public GameObject boss1;
 
 
-
-    // Start is called before the first frame update
+    //Resets boss state and spawns enemies
     void Start()
     {
         InvokeRepeating("SpawnEnemy", rate, rate);
@@ -23,7 +22,7 @@ public class Spawn : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    //Updates the score
     void Update()
     {
         if (PlayerPrefs.GetInt("Score") >= 300 && !isBoss)
@@ -32,6 +31,7 @@ public class Spawn : MonoBehaviour
         }
     }
 
+    //Spawns enemies unless the boss state is triggered
     void SpawnEnemy()
     {
         if (!isBoss)
@@ -44,7 +44,7 @@ public class Spawn : MonoBehaviour
         }
     }
 
-
+    //Self-explanatory
     void spawnBoss1()
     {
         isBoss = true;

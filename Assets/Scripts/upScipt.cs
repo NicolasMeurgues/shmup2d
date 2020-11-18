@@ -18,19 +18,15 @@ public class UpScipt : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    //Moves the upgrade towards the bottom of the playground
     void Update()
     {
         rb.velocity = new Vector2(0 * xSpeed, 3 * dir);
     }
 
-
+    //Check if the player collided with the upgrade. 
+    //If they did, invoke the corresponding upgrade.
+    //Else, destroy self.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
