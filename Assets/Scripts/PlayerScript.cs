@@ -19,6 +19,9 @@ public class PlayerScript : MonoBehaviour
     public int attackSpeed = 9;
     int attackRate = 0;
 
+    public AudioSource audioSource;
+    public AudioClip laserSound, shieldOn, shieldOff, loseSound;
+
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -62,6 +65,7 @@ public class PlayerScript : MonoBehaviour
     {
         life--;
         PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") - 1);
+        AudioSource.PlayClipAtPoint(loseSound, transform.position); //pas ouf, car volume pas gérable
         if (life == 0)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -72,7 +76,7 @@ public class PlayerScript : MonoBehaviour
 
     public void AddShield()
     {
-
+        audioSource.PlayOneShot(shieldOn);
     }
 
     public void AddLife()
@@ -92,6 +96,7 @@ public class PlayerScript : MonoBehaviour
 
     void Shoot()
     {
+        audioSource.PlayOneShot(laserSound);
         attackRate = 0;
         Instantiate(bullet, a.transform.position, Quaternion.identity);
         Instantiate(bullet, b.transform.position, Quaternion.identity);
