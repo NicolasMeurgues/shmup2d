@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 272439201}
   - component: {fileID: 272439200}
   - component: {fileID: 272439199}
+  - component: {fileID: 272439202}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -270,6 +271,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272439202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272439198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1da63591dc67445b632e87664be9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 703b245f98d111d418d988ba74eefbce, type: 3}
+  pixelSizeX: 3
+  pixelSizeY: 3
+  lockXY: 1
 --- !u!1 &330448990
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -249, y: -241}
+  m_AnchoredPosition: {x: -287.5, y: 93}
   m_SizeDelta: {x: 98, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330448992
@@ -378,7 +395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 258, y: -635}
+  m_AnchoredPosition: {x: 295, y: -241}
   m_SizeDelta: {x: 89, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409785956
@@ -452,7 +469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1132}
+  m_AnchoredPosition: {x: 0, y: -638.50006}
   m_SizeDelta: {x: 99, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &719568265
@@ -526,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -194, y: 101}
+  m_AnchoredPosition: {x: -286, y: 677}
   m_SizeDelta: {x: 101, y: 84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &934995682
@@ -600,7 +617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -289, y: 768}
+  m_AnchoredPosition: {x: -258, y: 1297}
   m_SizeDelta: {x: 89, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1052803243
@@ -674,7 +691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 172, y: -92}
+  m_AnchoredPosition: {x: 260.5, y: 425}
   m_SizeDelta: {x: 29, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145879129
@@ -749,8 +766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0013733, y: -1.2152}
-  m_SizeDelta: {x: 799.99725, y: 2598.4788}
+  m_AnchoredPosition: {x: -0.0013733, y: 267.6}
+  m_SizeDelta: {x: 799.99725, y: 3498.8333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1173604349
 Animator:
@@ -803,11 +820,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\n<size=120>Shooter's lair</size>\n<size=40> Un jeu de Nicolas & Th\xE9odore</size>\n\nASSETS
-    USED\n\nGraphics\n\n<size=35>Breathe Fire \n<i>by Chequered Ink</i></size>\n\nAudio\n\n<size=35>Space
-    Shooter \n<i>by Kenney Vleugels</i></size>\n\nFont\n\n<size=35>Space Shooter
-    \n<i>by Kenney Vleugels</i></size>\n\n\nSPECIAL THANKS\n\n<size=45>K\xE9vin Gallien\r\n\nTuto
-    unity fr\n\n\n\n\n\n\n\nThanks to you <3</size>\n"
+  m_Text: "\n\n<size=120>Shooter's lair</size>\n<size=40> Un jeu de Nicolas & Th\xE9odore</size>\n\n\nGraphics\n\n<size=35>Space
+    Shooter\n<i>by Keney Vleugels</i>\n</size>\n<size=35>Pixelate\n<i>by Andrii</i>\n</size>\nAudio\n\n<size=35>Space
+    Shooter \n<i>by Kenney Vleugels</i>\n\n8-BIT Explosions #1\n<i>by jalastram</i>\n\nRoyalty
+    Free Synthwave\n<i>by \rTeknoAXE's Royalty Free Music\r</i>\n</size>\nFont\n\n<size=35>Breathe
+    Fire \n<i>by Chequered Ink</i>\n</size>\n\nSPECIAL THANKS\n\n<size=45>K\xE9vin
+    Gallien\r\n\nTuto unity fr\n\nPUREHEART\n\n\n\n\n\n\nThanks to you <3</size>\n"
 --- !u!222 &1173604351
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -859,8 +877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -1300.5}
-  m_SizeDelta: {x: 0, y: 2600.909}
+  m_AnchoredPosition: {x: 0, y: -2017}
+  m_SizeDelta: {x: 0, y: 4034.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1320505479
 Animator:
@@ -927,7 +945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1023}
+  m_AnchoredPosition: {x: 0, y: -559}
   m_SizeDelta: {x: 9, y: 37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471202067
@@ -1001,7 +1019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: 620}
+  m_AnchoredPosition: {x: 260.5, y: 1160}
   m_SizeDelta: {x: 98, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1525934920

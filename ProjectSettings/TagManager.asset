@@ -7,6 +7,7 @@ TagManager:
   - Ennemy
   - bounds
   - destructor
+  - Boss1
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - bounds
   - Ennemy
-  - 
-  - 
+  - Boss
+  - bullet
   - 
   - 
   - 

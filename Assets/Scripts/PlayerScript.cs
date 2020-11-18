@@ -98,7 +98,6 @@ public class PlayerScript : MonoBehaviour
             shield.SetActive(true);
             audioSource.PlayOneShot(shieldOn); 
         }
-        
     }
 
     public void AddLife()
@@ -108,7 +107,6 @@ public class PlayerScript : MonoBehaviour
             life++;
             PlayerPrefs.SetInt("Life", PlayerPrefs.GetInt("Life") + 1);
         }
-        
     }
 
     public void UpgradeShoot()

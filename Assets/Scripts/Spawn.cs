@@ -19,13 +19,14 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnEnemy", rate, rate);
+        isBoss = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("Score") >= 20000 && !isBoss)
+        if (PlayerPrefs.GetInt("Score") >= 300 && !isBoss)
         {
             spawnBoss1();
         }
@@ -37,7 +38,7 @@ public class Spawn : MonoBehaviour
         {
             for (int i = 0; i < waves; i++)
             {
-                Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-6.5f, 6.5f), 7, 0), Quaternion.identity);
+                Instantiate(enemies[(int)Random.Range(0, enemies.Length)], new Vector3(Random.Range(-3.0f, 3.0f), 7, 0), Quaternion.identity);
 
             }
         }

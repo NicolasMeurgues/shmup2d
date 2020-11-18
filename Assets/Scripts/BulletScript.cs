@@ -7,8 +7,9 @@ public class BulletScript : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public int ySpeedMultiplicator;
     int dir = 1;
-    int xSpeed = 0;
+    float xSpeed = 0.0f;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(3*xSpeed, 15*dir);
+        rb.velocity = new Vector2(3*xSpeed, ySpeedMultiplicator*dir);
     }
 
     public void ChangeDirectionY()
@@ -32,7 +33,7 @@ public class BulletScript : MonoBehaviour
         dir *= -1;
     }
 
-    public void ChangeDirectionX(int i)
+    public void ChangeDirectionX(float i)
     {
         xSpeed += i;
     }
@@ -48,6 +49,11 @@ public class BulletScript : MonoBehaviour
             }
             if (collision.gameObject.tag == "bounds")
             {
+                Destroy(gameObject);
+            }
+            if (collision.gameObject.tag == "Boss1")
+            {
+                collision.gameObject.GetComponent<Boss1>().Damage();
                 Destroy(gameObject);
             }
         }
